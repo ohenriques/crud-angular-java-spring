@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CrudSpringApplication {
+	// TODO: 1 - Remover os SOUTs
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudSpringApplication.class, args);
@@ -24,6 +25,7 @@ public class CrudSpringApplication {
 			c.setName("Angular com Spring Boot");
 			c.setCategory("Front-end");
 			courserRepository.save(c);
+			System.out.println("Dados Mockados com sucesso!");
 		};
 
 	}

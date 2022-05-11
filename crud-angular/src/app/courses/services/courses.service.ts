@@ -8,7 +8,7 @@ import { Course } from './../model/course';
 })
 export class CoursesService {
 
-  private readonly API = '/assets/courses.json';
+  private readonly API = 'api/courses';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class CoursesService {
       .pipe(
         // first() => Interessado em receber apenas a primeira resposta do servidor,
         first(),
-        delay(1000),
+        // delay(500),
         tap(courses => console.log(courses)
         )
       );
