@@ -1,3 +1,24 @@
+# O que foi feito atualmente ⬇
+  [x] Criação da Toolbar na página principal
+  
+  [x] Módulo de cursos e usar roteamento com Lazy Loading
+
+  [x] Customizar tema com o Angular Material
+
+  [x] Criar Material Table para Listar os Cursos
+
+  [x] Css di Nateruak Table e criando um Módulo App Material
+
+  [x] Criando um Service no Angular
+
+  [x] Chamando HTTP get no Angular e RXJS
+
+  [x] Lista de Cursos e Spinner(loagind/carregando)
+
+  [x] Tratamento de Erros e MatDialog
+
+  [x] Lista de Cursos: Pipe para mostrar ícones de acordo com a categoria
+#
 # CrudAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
