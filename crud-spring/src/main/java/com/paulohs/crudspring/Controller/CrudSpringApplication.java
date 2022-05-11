@@ -1,4 +1,4 @@
-package com.paulohs.crudspring;
+package com.paulohs.crudspring.Controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,7 @@ public class CrudSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudSpringApplication.class, args);
+		System.out.println("Aplicação iniciada!");
 	}
 
 }
