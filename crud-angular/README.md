@@ -20,6 +20,9 @@
   [x] Lista de Cursos: Pipe para mostrar ícones de acordo com a categoria
 #
 # CrudAngular
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
