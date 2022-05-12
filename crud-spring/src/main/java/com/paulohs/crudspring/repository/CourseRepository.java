@@ -1,7 +1,5 @@
 package com.paulohs.crudspring.repository;
 
-import java.util.Optional;
-
 import com.paulohs.crudspring.model.Course;
 
 import org.springframework.data.jpa.repository.JpaRepository;
