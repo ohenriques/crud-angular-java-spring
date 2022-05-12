@@ -17,7 +17,7 @@ export class CoursesService {
       .pipe(
         // first() => Interessado em receber apenas a primeira resposta do servidor,
         first(),
-        delay(1000),
+        // delay(1000),
         tap(courses => console.log(courses)
         )
       );

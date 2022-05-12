@@ -7,6 +7,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 
 import { Course } from './../model/course';
 import { CoursesService } from './../services/courses.service';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @Component({
   selector: 'app-courses',
@@ -57,6 +58,21 @@ export class CoursesComponent implements OnInit {
     // passando o path completo
     // this.router.navigate(['courses/new']);
     this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onDelete() {
+    console.log('passando no delete');
+    console.log(this.courses$);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(EditCourseComponent, {
+      width: '80%', height: 'auto', hasBackdrop: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }
