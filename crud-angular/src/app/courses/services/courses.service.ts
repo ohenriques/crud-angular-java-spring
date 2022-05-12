@@ -31,7 +31,7 @@ export class CoursesService {
     return this.http.put<Course>(this.API + `/course/${updated.id}`, updated);
   }
 
-  delete(id: number) {
-    return this.http.delete<any>(this.API + "/course/" + id);
+  delete(obj: any) {
+    return this.http.delete<any>(this.API + "/course/" + obj.id);
   }
 }

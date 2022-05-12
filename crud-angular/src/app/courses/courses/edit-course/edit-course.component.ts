@@ -1,9 +1,8 @@
-import { CoursesService } from './../../services/courses.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CoursesService } from './../../services/courses.service';
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
@@ -28,33 +27,28 @@ export class EditCourseComponent implements OnInit {
       category: ['', Validators.required],
       id: [this.data.course._id]
     });
-
-    console.log(this.data.course._id);
-
     this.form.controls['name'].setValue(this.data.course.name);
     this.form.controls['category'].setValue(this.data.course.category);
   }
 
   ngOnInit(): void {
-    console.log(this.data);
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 
   onSubmit() {
     this.service.update(this.form.value)
       .subscribe(data => this.onSuccess(), error => this.onError());
-
-    // console.log(this.form.value);// pegando todas as informações do formulário
   }
 
   onSuccess() {
     this._snackBar.open('Categoria Salva com sucesso', 'Close', { duration: 3000 });
     this.onNoClick();
   }
+
   onError() {
     this._snackBar.open('error ao salvar curso', 'Close', { duration: 3000 });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }
