@@ -51,13 +51,18 @@
             mat-icon-button
             color="primary"
             aria-label="Editar um Curso"
-            (click)="openDialog()"
+            (click)="openDialogAdd(course)"
           >
             <mat-icon>edit</mat-icon>
           </button>
 
           <!-- REMOVE course -->
-          <button mat-icon-button color="warn" aria-label="Remover um Curso">
+          <button
+            mat-icon-button
+            color="warn"
+            aria-label="Remover um Curso"
+            (click)="openDialogDelete(course)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>

@@ -8,6 +8,7 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { EditCourseComponent } from './courses/edit-course/edit-course.component';
+import { DeleteCourseComponent } from './courses/delete-course/delete-course.component';
 
 
 
@@ -17,7 +18,8 @@ import { EditCourseComponent } from './courses/edit-course/edit-course.component
   declarations: [
     CoursesComponent,
     CourseFormComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    DeleteCourseComponent
   ],
   imports: [
     CommonModule,

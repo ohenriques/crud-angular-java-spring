@@ -10,10 +10,10 @@ export class CoursesService {
 
   private readonly API = 'api/courses';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Course[]>(this.API)
+    return this.http.get<Course[]>(this.API)
       .pipe(
         // first() => Interessado em receber apenas a primeira resposta do servidor,
         first(),
@@ -24,6 +24,14 @@ export class CoursesService {
   }
 
   save(record: Course) {
-    return this.httpClient.post<Course>(this.API, record);
+    return this.http.post<Course>(this.API, record);
+  }
+
+  update(updated: any) {
+    return this.http.put<Course>(this.API + `/course/${updated.id}`, updated);
+  }
+
+  delete(id: number) {
+    return this.http.delete<any>(this.API + "/course/" + id);
   }
 }

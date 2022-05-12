@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -60,19 +60,18 @@ export class CoursesComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
-  onDelete() {
-    console.log('passando no delete');
-    console.log(this.courses$);
+  openDialogDelete(course: Course) {
+    console.log('passando no delete', course);
   }
 
-  openDialog(): void {
+  openDialogAdd(course: any): void {
     const dialogRef = this.dialog.open(EditCourseComponent, {
-      width: '80%', height: 'auto', hasBackdrop: true
+      width: '80%', height: 'auto', hasBackdrop: true, data: { course }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      // TODO: UPDATE LIST AFTER CLOSE
     });
   }
-
 }
