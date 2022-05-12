@@ -8,8 +8,10 @@ import com.paulohs.crudspring.repository.CourseRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -38,17 +40,34 @@ public class CourseController {
     @ResponseStatus(code = HttpStatus.CREATED)
     public Course create(@RequestBody Course course) {
         return courseRepository.save(course);
+        // public ResponseEntity<Course> create(@RequestBody Course course) {
         // return ResponseEntity.status(HttpStatus.CREATED)
         // .body(courseRepository.save(course));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/course/{id}")
     public Course findById(@PathVariable(value = "id") Long id) {
         return courseRepository.findById(id).get();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/course/{id}")
     public void deleteById(@PathVariable(value = "id") Long id) {
         courseRepository.deleteById(id);
+    }
+
+    @PutMapping("/course/{id}")
+    public Course putUpdate(@PathVariable(value = "id") Long id, @RequestBody Course course) {
+        Course c = findById(id);
+        c.setName(course.getName());
+        c.setCategory(course.getCategory());
+        return courseRepository.save(c);
+    }
+
+    @PatchMapping("/course/{id}")
+    public Course patchUpdate(@PathVariable(value = "id") Long id, @RequestBody Course course) {
+        Course c = findById(id);
+        c.setName(course.getName());
+        c.setCategory(course.getCategory());
+        return courseRepository.save(c);
     }
 }

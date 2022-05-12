@@ -17,17 +17,17 @@ public class CrudSpringApplication {
 		System.out.println("Aplicação iniciada!");
 	}
 
-	@Bean
-	CommandLineRunner initDataBase(CourseRepository courserRepository) {
-		return args -> {
-			courserRepository.deleteAll();
-			Course c = new Course();
-			c.setName("Angular com Spring Boot");
-			c.setCategory("Front-end");
-			courserRepository.save(c);
-			System.out.println("Dados Mockados com sucesso!");
-		};
+	// @Bean
+	// CommandLineRunner initDataBase(CourseRepository courserRepository) {
+	// return args -> {
+	// courserRepository.deleteAll();
+	// Course c = new Course();
+	// c.setName("Angular com Spring Boot");
+	// c.setCategory("Front-end");
+	// courserRepository.save(c);
+	// System.out.println("Dados Mockados com sucesso!");
+	// };
 
-	}
+	// }
 
 }
