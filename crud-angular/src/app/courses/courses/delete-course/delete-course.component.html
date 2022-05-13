@@ -21,16 +21,6 @@
   </mat-card-content>
 
   <mat-card-actions class="buttons-actions">
-    <!-- BACK TO -->
-    <button
-      mat-icon-button
-      color="#90ee02"
-      aria-label="Remover um Curso"
-      (click)="justBackToPage()"
-    >
-      <mat-icon>arrow_back_ios</mat-icon>
-    </button>
-
     <!-- REMOVE course -->
     <button
       mat-icon-button
@@ -39,6 +29,16 @@
       (click)="onSubmit()"
     >
       <mat-icon>delete</mat-icon>
+    </button>
+
+    <!-- BACK TO -->
+    <button
+      mat-icon-button
+      color="#90ee02"
+      aria-label="Remover um Curso"
+      (click)="justBackToPage()"
+    >
+      <mat-icon>arrow_back_ios</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>

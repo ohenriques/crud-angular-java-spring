@@ -31,6 +31,7 @@ export class CoursesComponent implements OnInit {
   ) {
     // pode ser inicializado dentro do contructor/ngOnInit também
     // this.courses = [];
+
     this.courses$ = this.coursesService.list()
       .pipe(
         catchError(error => {
@@ -40,19 +41,31 @@ export class CoursesComponent implements OnInit {
         })
       );
 
+
+
     // this.coursesService = new CoursesService();
     // this.courses = this.coursesService.list();
+  }
+  ngOnInit(): void {
+    // TODO document why this method 'ngOnInit' is empty
+    this.atualiza();
+  }
+
+  atualiza() {
+    this.courses$ = this.coursesService.list()
+      .pipe(
+        catchError(error => {
+          console.log(error);
+          this.onError('Erro ao carregar os cursos.');
+          return of([]);
+        })
+      );
   }
 
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
-  }
-
-  ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
-
   }
 
   onAdd() {
@@ -65,10 +78,9 @@ export class CoursesComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteCourseComponent, {
       width: '20%', height: 'auto', hasBackdrop: true, data: { course }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // TODO: UPDATE LIST AFTER CLOSE
+      this.atualiza();
     });
   }
 
@@ -76,10 +88,9 @@ export class CoursesComponent implements OnInit {
     const dialogRef = this.dialog.open(EditCourseComponent, {
       width: '80%', height: 'auto', hasBackdrop: true, data: { course }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // TODO: UPDATE LIST AFTER CLOSE
+      this.atualiza();
     });
   }
 }

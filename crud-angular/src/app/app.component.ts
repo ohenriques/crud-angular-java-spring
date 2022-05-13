@@ -1,4 +1,6 @@
+import { CoursesService } from './courses/services/courses.service';
 import { Component } from '@angular/core';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'crud-angular';
 
-  //   values = '';
-  //   onKey(event: any) { // without type info
-  //     this.values += event.target.value + ' | ';
-  //     console.log(this.values);
-  // }
+  constructor(
+    public coursesService: CoursesService
+  ) { }
+
+
+  onKey(nomeDoCurso: any) {
+    try {
+      this.coursesService.getone(nomeDoCurso.target.value).subscribe(
+        pipe(
+          res => {
+            console.log(res);
+          }
+        )
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 }

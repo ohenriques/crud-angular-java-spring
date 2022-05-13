@@ -18,12 +18,14 @@ export class CoursesService {
         // first() => Interessado em receber apenas a primeira resposta do servidor,
         first(),
         // delay(1000),
-        tap(courses => console.log(courses)
-        )
-      );
+        // o tap serve par mostrar o que foi enviado pelo pipe
+        // tap(courses => console.log(courses)
+      )
+      ;
   }
 
   save(record: Course) {
+    console.log(record);
     return this.http.post<Course>(this.API, record);
   }
 
@@ -33,5 +35,11 @@ export class CoursesService {
 
   delete(obj: any) {
     return this.http.delete<any>(this.API + "/course/" + obj.id);
+  }
+
+  getone(name: any) {
+    return this.http.get<Course>(this.API + "/course/name/" + name);
+    // .pipe(tap(result => console.log(result)));
+    // return this.http.get<Course>(this.API + "/course/name/" + name);
   }
 }

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -24,8 +24,8 @@ export class CourseFormComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {
     this.form = this.formBuilder.group({
-      name: [null],
-      category: [null]
+      name: [null, Validators.required],
+      category: [null, Validators.required]
     });
   }
 
@@ -38,7 +38,7 @@ export class CourseFormComponent implements OnInit {
     this.service.save(this.form.value)
       .subscribe(data => this.onSuccess(), error => this.onError());
 
-    // console.log(this.form.value);// pegando todas as informações do formulário
+    console.log(this.form.value);// pegando todas as informações do formulário
   }
 
   onBack() {

@@ -4,7 +4,12 @@
     <mat-icon matSuffix>search</mat-icon>
     <mat-form-field appearance="standard">
       <mat-label>Buscar Curso</mat-label>
-      <input matInput />
+      <input
+        type="text"
+        #inputBuscaCurso
+        (keydown.enter)="onKey($event); inputBuscaCurso.value = ''"
+        matInput
+      />
     </mat-form-field>
   </div>
 </mat-toolbar>

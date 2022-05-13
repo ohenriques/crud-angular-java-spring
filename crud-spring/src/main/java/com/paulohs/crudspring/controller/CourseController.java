@@ -50,6 +50,11 @@ public class CourseController {
         return courseRepository.findById(id).get();
     }
 
+    @GetMapping("/course/name/{name}")
+    public Course findByName(@PathVariable(value = "name") String name) {
+        return courseRepository.findByName(name);
+    }
+
     @DeleteMapping("/course/{id}")
     public void deleteById(@PathVariable(value = "id") Long id) {
         courseRepository.deleteById(id);
