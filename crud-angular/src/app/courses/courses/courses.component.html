@@ -1,12 +1,7 @@
 <mat-card>
   <mat-toolbar color="primary"
     >Cursos
-    <button
-      mat-mini-fab
-      color="accent"
-      style="margin-left: 90%"
-      aria-label="Adicionar um Curso"
-    >
+    <button mat-mini-fab color="accent" aria-label="Adicionar um Curso">
       <mat-icon (click)="onAdd()">add</mat-icon>
     </button>
   </mat-toolbar>
@@ -28,11 +23,13 @@
       <!-- Category Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef>Categoria</th>
-        <td mat-cell *matCellDef="let course" class="category">
-          {{ course.category }}
-          <mat-icon aria-hidden="false" aria-label="Category do curso">{{
-            course.category | category
-          }}</mat-icon>
+        <td mat-cell *matCellDef="let course">
+          <div class="category">
+            <mat-icon aria-hidden="false" aria-label="Category do curso">{{
+              course.category | category
+            }}</mat-icon>
+            {{ course.category }}
+          </div>
         </td>
       </ng-container>
 
