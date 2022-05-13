@@ -1,6 +1,22 @@
 table {
   width: 100%;
 }
+th {
+  width: 50%;
+}
+.category {
+  // background-color: red;
+  width: 50%;
+  text-align: left;
+  align-items: center;
+  display: -moz-grid-line;
+  // flex-direction: row;
+  // justify-content: left;
+  // flex-wrap: nowrap;
+}
+.category > mat-icon {
+  // color: white;
+}
 
 .loading-spinner {
   padding: 25px;

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crud-angular';
+
+  //   values = '';
+  //   onKey(event: any) { // without type info
+  //     this.values += event.target.value + ' | ';
+  //     console.log(this.values);
+  // }
+
 }
