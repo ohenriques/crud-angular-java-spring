@@ -39,6 +39,7 @@ export class CoursesService {
 
   getone(name: any) {
     return this.http.get<Course>(this.API + "/course/name/" + name);
+    // TODO:IMPLEMENTAR O FINDONE E A RENDERIZAÇÃO
     // .pipe(tap(result => console.log(result)));
     // return this.http.get<Course>(this.API + "/course/name/" + name);
   }
